@@ -5,14 +5,14 @@ This project demonstrates the design and implementation of a hospital database s
 -**ERD Design**
 -**SQL Queries for data retrieval**
 -**Streamlit-based dashboard**
------------------
+--
 ## Technologies
--SQL
--Python
--Streamlit
-----------------
+-**SQL**
+-**Python**
+-**Streamlit**
+--
 ## Project Structure
--ERD
--Database Schema
--Queries
--Streamlit App
+-**ERD**
+-**Database Schema**
+-**Queries**
+-**Streamlit App**
