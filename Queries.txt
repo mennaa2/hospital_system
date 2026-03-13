@@ -1,0 +1,106 @@
+--1 AKTER DEPARTMENT
+SELECT 
+    d.department_name,
+    COUNT(doc.doctor_id) AS total_doctors
+FROM Department d
+LEFT JOIN Doctor doc 
+    ON d.department_id = doc.department_id
+GROUP BY d.department_id, d.department_name
+ORDER BY total_doctors DESC;
+
+-- 2 Most FREQ DOC
+SELECT 
+    doc.full_name,
+    COUNT(a.appointment_id) AS total_appointments
+FROM Doctor doc
+JOIN Appointment a 
+    ON doc.doctor_id = a.doctor_id
+GROUP BY doc.doctor_id, doc.full_name
+ORDER BY total_appointments DESC;
+
+--3 Canceled Appointment
+
+SELECT 
+    status,
+    COUNT(*) AS total,
+    ROUND(COUNT(*) * 100.0 / 
+        (SELECT COUNT(*) FROM Appointment), 2) AS percentage
+FROM Appointment
+GROUP BY status; 
+  
+  
+--4 Bed Occupancy
+
+SELECT 
+    status,
+    COUNT(*) AS total_beds
+FROM Bed
+GROUP BY status;
+
+--5 TOTAL INCOME 
+
+SELECT 
+    SUM(total_amount) AS total_revenue
+FROM Invoice
+WHERE payment_status = 'Paid';
+
+
+--6   AKTAR DISEASE MAWGOD
+SELECT 
+    d.disease_name,
+    COUNT(rd.id) AS total_cases
+FROM Disease d
+JOIN Record_Disease rd 
+    ON d.disease_id = rd.disease_id
+GROUP BY d.disease_id, d.disease_name
+ORDER BY total_cases DESC;
+
+--7 NO OF PATIENTS FOR EACH DOC
+
+SELECT 
+    doc.full_name,
+    COUNT(DISTINCT mr.patient_id) AS total_patients
+FROM Doctor doc
+JOIN Medical_Record mr 
+    ON doc.doctor_id = mr.doctor_id
+GROUP BY doc.doctor_id, doc.full_name
+ORDER BY total_patients DESC;
+
+--8 AVG DAY STAY
+
+SELECT 
+    ROUND(AVG(
+        JULIANDAY(discharge_date) - JULIANDAY(admission_date)
+    ), 2) AS avg_stay_days
+FROM Admission
+WHERE discharge_date IS NOT NULL;
+
+--9 TEST TYPE
+
+SELECT 
+    test_type,
+    COUNT(*) AS total_tests
+FROM Laboratory_Test
+GROUP BY test_type
+ORDER BY total_tests DESC;
+
+--10 NO OF OPERATIONS
+
+SELECT 
+    doc.full_name,
+    COUNT(o.operation_id) AS total_operations
+FROM Doctor doc
+JOIN Operation o 
+    ON doc.doctor_id = o.doctor_id
+GROUP BY doc.doctor_id, doc.full_name
+ORDER BY total_operations DESC;
+
+
+--11 INJURIES DANG
+
+SELECT 
+    severity,
+    COUNT(*) AS total_injuries
+FROM Injury
+GROUP BY severity
+ORDER BY total_injuries DESC;
