@@ -2,9 +2,9 @@
 This project demonstrates the design and implementation of a hospital database system.
 
 ## Features
--ERD Design
--SQL Queries for data retrieval
--Streamlit-based dashboard
+-**ERD Design**
+-**SQL Queries for data retrieval**
+-**Streamlit-based dashboard**
 -----------------
 ## Technologies
 -SQL
