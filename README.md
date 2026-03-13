@@ -1,2 +1,16 @@
-# hospital_system
-This project is a Hospital Management System managing patients, doctors, nurses, rooms, beds, medical records, and invoices. Built with SQL database, ER diagram, and an interactive Streamlit interface for easy data management and queries.
+Hospital Management System
+This project demonstrates the design and implementation of a hospital database system.
+
+Features
+ERD Design
+SQL Queries for data retrieval
+Streamlit-based dashboard
+Technologies
+SQL
+Python
+Streamlit
+Project Structure
+ERD
+Database Schema
+Queries
+Streamlit App
